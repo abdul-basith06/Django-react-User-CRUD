@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     username = models.CharField(max_length=250, unique=True)
     email = models.CharField(max_length=250, unique=True)
-    # Password field is already inherited from AbstractUser
+    password=models.CharField(max_length=250)
     profile_img = models.ImageField(upload_to='profile', blank=True, null=True)
     is_active = models.BooleanField(default=True)
 

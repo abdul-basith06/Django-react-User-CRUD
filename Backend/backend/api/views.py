@@ -5,6 +5,8 @@ from rest_framework.views import APIView
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer # type: ignore
 from rest_framework_simplejwt.views import TokenObtainPairView  # type: ignore
+
+from .serializers import UserSerializer
 # Create your views here.
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -32,3 +34,10 @@ def getRoutes(request):
 
     return Response(routes)
 
+
+class RegisterView(APIView):
+    def post(self,request):
+        serializer=UserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
