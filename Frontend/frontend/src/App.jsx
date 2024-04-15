@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Loginpage from './pages/Loginpage'
 import Signuppage from './pages/Signuppage'
+import Homepage from './pages/Homepage'
 
 function App() {
 
@@ -9,9 +10,9 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<Loginpage />}></Route>
-        <Route path='register/' exact element={<Signuppage />}></Route>
-        <Route path='login/' element={<Loginpage />}></Route>
+        <Route path="/" exact element={<Homepage />}></Route>
+        <Route path='register/' exact Component={Signuppage}></Route>
+        <Route path='login/' Component={Loginpage}></Route>
        
 
 
