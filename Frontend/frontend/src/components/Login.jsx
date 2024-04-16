@@ -46,16 +46,26 @@ const Login = () => {
 
 
   return (
-    <div>
+    <div className="flex justify-center items-center mx-auto px-4 py-8">
+    <div className='w-5/12 p-6 shadow-lg bg-pink-50 rounded-md mt-28'>
       <Toaster position='top-left' reverseOrder='false' ></Toaster>
-        Login Page
+      <h2 className="text-3xl font-medium mb-4 text-black text-center">Login</h2>
         <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='email' name='email'/>
+          <div className='mb-4'>
+          <input type="text" placeholder='email' name='email'/>
+          </div>
+        <div className='mb-4'>
         <input type="text" placeholder='password' name='password'/>
-        <button type='submit'>Submit</button>
+        </div>
+        
+        <button className='sbmt'type='submit'>Submit</button>
         </form>
-<p>Dont have an account</p>
-<h6><Link to='/register'>Register here</Link></h6>
+        <div className="flex justify-between mt-4">
+        <p>Dont have an account..??</p>
+<h6 className='text-#1d4ed8'><Link to='/register'>Register here</Link></h6>
+        </div>
+
+</div>
     </div>
   )
 }

@@ -53,9 +53,10 @@ const Signup = () => {
   
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="flex justify-center items-center mx-auto px-4 py-8">
+      <div className='w-5/12 p-6 shadow-lg bg-pink-50 rounded-md'>
       <Toaster position='top-left' reverseOrder='false' ></Toaster>
-      <h2 className="text-2xl font-medium mb-4">Sign Up</h2>
+      <h2 className="text-3xl font-medium mb-4 text-black text-center">Sign Up</h2>
         <form onSubmit={signUpUser}>
         <div className="mb-4">
           <label htmlFor="username" className="block text-sm font-medium mb-2">
@@ -64,7 +65,6 @@ const Signup = () => {
           <input
             type="text"
             id="username"
-            className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Enter Username"
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -76,7 +76,6 @@ const Signup = () => {
           <input
             type="email"
             id="email"
-            className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Enter Email"
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -88,7 +87,6 @@ const Signup = () => {
           <input
             type="password"
             id="password"
-            className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -100,18 +98,18 @@ const Signup = () => {
           <input
             type="password"
             id="confirmPassword"
-            className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
             placeholder="Confirm Password"
             onChange={(e) => setPassword2(e.target.value)}
           />
         </div>
-        <button type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700">Submit</button>
+        <button className='sbmt' type='submit'>Submit</button>
 
         </form>
         <br/>
-        <div className="flex justify-between items-center mt-4">
-  <p>Already have an account?</p>
-  <h6><Link to='/login'>Login</Link></h6>
+        <div className="flex justify-between mt-4">
+              <p>Already have an account?</p>
+               <h6><Link to='/login'>Login</Link></h6>
+  </div>
 </div>
 
     </div>
