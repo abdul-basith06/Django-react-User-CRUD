@@ -8,6 +8,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer # typ
 from rest_framework_simplejwt.views import TokenObtainPairView  # type: ignore
 
 from .serializers import UserSerializer
+from .models import *
 # Create your views here.
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -42,3 +43,12 @@ class RegisterView(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+
+@api_view(['GET'])
+def userDetails(request,pk):
+    try:
+        user = User.objects.get(id=pk)
+        serializer=UserSerializer(user,many=False)
+        return Response(serializer.data)
+    except User.DoesNotExist:
+        return Response("User not found!",status=status.HTTP_404_NOT_FOUND)

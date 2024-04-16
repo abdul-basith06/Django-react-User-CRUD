@@ -5,6 +5,7 @@ class User(AbstractUser):
     username = models.CharField(max_length=250, unique=True)
     email = models.CharField(max_length=250, unique=True)
     password=models.CharField(max_length=250)
+    occupation = models.CharField(max_length=250, null=True, blank=True)
     profile_img = models.ImageField(upload_to='profile', blank=True, null=True)
     is_active = models.BooleanField(default=True)
 
