@@ -3,6 +3,7 @@ import './App.css'
 import Loginpage from './pages/Loginpage'
 import Signuppage from './pages/Signuppage'
 import Homepage from './pages/Homepage'
+import Profilepage from './pages/Profilepage'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" exact element={<Homepage />}></Route>
         <Route path='register/' exact Component={Signuppage}></Route>
         <Route path='login/' Component={Loginpage}></Route>
+        <Route path='profile/' Component={Profilepage}></Route>
        
 
 

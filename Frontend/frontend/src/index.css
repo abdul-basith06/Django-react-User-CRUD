@@ -8,6 +8,9 @@
         @apply bg-gradient-to-t
     }
 
+    h1 {
+        @apply text-gray-800 font-semibold text-2xl
+    }
     h2 {
         color: text-white;
     }
@@ -27,5 +30,8 @@
     .lgt-btn{
         @apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none w-full focus:ring-2 focus:ring-offset-2 focus:ring-blue-700
 
+    }
+    .edt-btn {
+        @apply bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded mr-8 w-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-700
     }
 }

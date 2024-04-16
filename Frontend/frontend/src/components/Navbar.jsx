@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
 
 
@@ -35,10 +35,7 @@ const Navbar = () => {
 
     <ul className={`md:flex md:items-center  md:static absolute bg-pink-50 w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 z-index: 10; ${isOpen ? 'top-[80px] opacity-100 z-index: 10;' : ''} `}>
       <li className="mx-4 my-6 md:my-0">
-        <a href="#" className="text-xl hover:text-cyan-500 duration-500">HOME</a>
-      </li>
-      <li className="mx-4 my-6 md:my-0">
-        <a href="#" className="text-xl hover:text-cyan-500 duration-500">SERVICE</a>
+        <a href="#" className="text-xl hover:text-cyan-500 duration-500"><Link to='/'>HOME</Link></a>
       </li>
       <li className="mx-4 my-6 md:my-0">
         <a href="#" className="text-xl hover:text-cyan-500 duration-500">ABOUT</a>
@@ -47,7 +44,7 @@ const Navbar = () => {
         <a href="#" className="text-xl hover:text-cyan-500 duration-500">CONTACT</a>
       </li>
       <li className="mx-4 my-6 md:my-0">
-        <a href="#" className="text-xl hover:text-cyan-500 duration-500">BLOG'S</a>
+        <a href="#" className="text-xl hover:text-cyan-500 duration-500"><Link to='/profile'>PROFILE</Link></a>
       </li>
 
       <button onClick={logout} className="lgt-btn">
