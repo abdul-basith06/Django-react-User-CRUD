@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 import { getlocal } from '../helpers/auth'
 import { jwtDecode } from 'jwt-decode'
-
-import AdminPanelPage from '../pages/AdminPanelPage'
-import HomePage from '../pages/HomePage'
-import LoginPage from '../pages/LoginPage'
+import Adminpanelpage from '../pages/Adminpanelpage'
+import Homepage from '../pages/Homepage'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -22,19 +20,17 @@ const PrivateRouter = ({ children, ...rest }) => {
     if (response){
         const decoded=jwtDecode(response)
         if (decoded.is_admin){
-            console.log("Admin page")
             return (
                 <div>
-                    <AdminPanelPage title={'ADMIN PAGE'}/>
+                    <Adminpanelpage title={'ADMIN PAGE'}/>
                 </div>
               )
             }
             else if(!decoded.is_admin){
-                console.log("Home page")
                 
         return (
             <div>
-                <HomePage title={'HOME PAGE'}/>
+                <Homepage title={'HOME PAGE'}/>
             </div>
           )
         }
@@ -42,11 +38,7 @@ const PrivateRouter = ({ children, ...rest }) => {
         }
     else{
         return  null
-        // return (
-        //   <div>
-        //       <LoginPage/>
-        //   </div>
-        // )
+       
     }
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Home from '../components/Home'
 
-const Homepagepage = () => {
+const Homepage = () => {
   return (
     <div>
         <Navbar />
@@ -11,4 +11,4 @@ const Homepagepage = () => {
   )
 }
 
-export default Homepagepage
+export default Homepage
