@@ -34,4 +34,8 @@
     .edt-btn {
         @apply bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded mr-8 w-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-700
     }
+    .confirm-btn {
+        @apply bg-green-500 hover:bg-yellow-700 text-white font-bold rounded mr-8 w-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-700
+
+    }
 }
