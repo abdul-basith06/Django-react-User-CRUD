@@ -10,4 +10,5 @@ urlpatterns = [
     path('register/', RegisterView.as_view()),
     path('user-details/<int:pk>/',views.userDetails,name="user-details"),
     path('user-update/<int:pk>/',views.userUpdate,name="user-update"),
+    path('class-userlist/',ClassUserList.as_view(),name='class-user-list'),
 ]

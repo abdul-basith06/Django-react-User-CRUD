@@ -6,6 +6,9 @@ from rest_framework import status
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer # type: ignore
 from rest_framework_simplejwt.views import TokenObtainPairView  # type: ignore
+from rest_framework.generics import ListCreateAPIView
+
+from rest_framework.filters import SearchFilter,OrderingFilter
 
 from .serializers import UserSerializer
 from .models import *
@@ -71,3 +74,10 @@ def userUpdate(request,pk):
             return Response(serializer.errors,status= status.HTTP_400_BAD_REQUEST)
     except User.DoesNotExist:
         return Response("User not found!",status=status.HTTP_404_NOT_FOUND)    
+    
+    
+class ClassUserList(ListCreateAPIView):
+    queryset=User.objects.filter(is_superuser=False)
+    serializer_class=UserSerializer
+    filter_backends=[SearchFilter]
+    search_fields=['username','email']
