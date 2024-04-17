@@ -81,3 +81,23 @@ class ClassUserList(ListCreateAPIView):
     serializer_class=UserSerializer
     filter_backends=[SearchFilter]
     search_fields=['username','email']
+    
+    
+@api_view(['DELETE'])
+def userDelete(request,pk):
+    try:
+        user = User.objects.exclude(id=1).get(id=pk)
+        user.delete()
+        return Response('User deleted')
+    except User.DoesNotExist:
+        return Response("User not found")  
+    
+    
+@api_view(['GET'])   
+def userList(request):
+
+    users=User.objects.filter(is_superuser=False)
+    serializer=UserSerializer(users,many=True)
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields=['id']
+    return Response(serializer.data)      

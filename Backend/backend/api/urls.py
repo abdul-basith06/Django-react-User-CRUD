@@ -11,4 +11,6 @@ urlpatterns = [
     path('user-details/<int:pk>/',views.userDetails,name="user-details"),
     path('user-update/<int:pk>/',views.userUpdate,name="user-update"),
     path('class-userlist/',ClassUserList.as_view(),name='class-user-list'),
+    path('user-delete/<int:pk>/',views.userDelete,name="user-delete"),
+    path('user-list/',views.userList,name="user-list"),
 ]
