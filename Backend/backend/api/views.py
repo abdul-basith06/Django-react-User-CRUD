@@ -52,3 +52,22 @@ def userDetails(request,pk):
         return Response(serializer.data)
     except User.DoesNotExist:
         return Response("User not found!",status=status.HTTP_404_NOT_FOUND)
+    
+@api_view(['PUT'])
+def userUpdate(request,pk):
+    try:
+        data=request.data
+       
+        user=User.objects.get(id=pk)
+        serializer=UserSerializer(user,data=data, partial=True)
+        if serializer.is_valid():
+            if 'profile_img' in request.data:
+                serializer.validated_data['profile_img'] = request.data['profile_img']
+                
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            print('error is hereeee')
+            return Response(serializer.errors,status= status.HTTP_400_BAD_REQUEST)
+    except User.DoesNotExist:
+        return Response("User not found!",status=status.HTTP_404_NOT_FOUND)    
