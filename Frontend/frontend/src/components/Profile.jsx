@@ -16,6 +16,15 @@ const Profile = () => {
     });
     const navigate = useNavigate()
 
+  const [profile_img, setProfileImage] = useState(null);
+  const [occupation, setOccupation] = useState('')
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [isOpen, setIsOpen] = useState(false)
+
+
     useEffect(() => {
         async function getUser() {
             try {
@@ -33,6 +42,7 @@ const Profile = () => {
     }, [user_id]);
 
   return (
+    <div>
   <div className='flex items-center justify-center mt-16'>
 
         <div className="bg-pink-50 w-1/3 mt-10 rounded-lg">
@@ -44,9 +54,35 @@ const Profile = () => {
             </div>
             <div className='flex justify-between  mb-6'>
                 <h2 className='text-gray-400 text-lg pl-8'>{user.email}</h2>
-                <button className='edt-btn'>Edit</button>
+                <button onClick={()=>setIsOpen(true)} className='edt-btn'>Edit</button>
             </div>
 </div>
+  </div>
+
+
+     {isOpen && (
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div className='flex items-center justify-center mt-16'>
+
+<div className="bg-pink-50 w-1/3 mt-10 rounded-lg">
+    <div className="flex items-center justify-center pt-10 flex-col">
+    <img />
+<h1 className='mt-5'>{user.username}</h1>
+<h1 className='text-gray-400 text-lg p-4'>{user.occupation ? user.occupation : 'Please enter your occupation'}</h1>
+    </div>
+    <div className='flex justify-between  mb-6'>
+        <h2 className='text-gray-400 text-lg pl-8'>{user.email}</h2>
+        <button className='edt-btn'>Edit</button>
+    </div>
+</div>
+</div>
+            </div>
+            </div>  
+           
+           ) } 
+          
 
   </div>
   )
