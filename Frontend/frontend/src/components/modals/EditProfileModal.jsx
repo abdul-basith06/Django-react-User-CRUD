@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { jwtDecode } from 'jwt-decode'
 import { getlocal } from "../../helpers/auth";
 import toast from 'react-hot-toast'
+import { useSelector } from "react-redux";
 
 const EditProfileModal = ({  onClose, user, setUser  }) => {
 
@@ -12,6 +13,7 @@ const EditProfileModal = ({  onClose, user, setUser  }) => {
   const [occupation, setOccupation] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const {darkMode} = useSelector((state)=> state.darkMode)
 
   const closeModal=(e)=> {
     if(modalRef.current === e.target){
@@ -63,14 +65,15 @@ const EditProfileModal = ({  onClose, user, setUser  }) => {
   };
 
   return (
-    <div ref={modalRef} onClick={closeModal} className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center ">
+    <div ref={modalRef} onClick={closeModal} className={`${
+        darkMode ? 'dark' : ''} fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center `}>
         <div className="mt-10 flex flex-col gap-5 text-black w-2/3">
             <button onClick={onClose} className="place-self-end"><X size={30}/></button>
-            <div className="bg-pink-100 rounded-xl px-20 py-10 flex flex-col gap-5 items-center mx-4">
-                <h1>Edit Profile</h1>
+            <div className="bg-cyan-50 dark:bg-neutral-900 rounded-xl px-20 py-10 flex flex-col gap-5 items-center mx-4">
+                <h1 className="dark:text-white">Edit Profile</h1>
                 <img className='rounded-full w-28 h-28' src={user.profile_img ? `http://localhost:8000${user.profile_img}` : 'https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg'} alt="profile pic" />
                 <form onSubmit={updateProfile}>
-                <input
+                <input className="dark:text-white"
                             type="file"
                             name="profile_img" 
                             onChange={e => setProfileImage(e.target.files[0])}

@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-    html {
+    /* html {
         background: #2F3C7E; 
         @apply bg-gradient-to-t
-    }
+    } */
 
     h1 {
         @apply text-gray-800 font-semibold text-2xl
@@ -39,5 +39,8 @@
     }
     .dlt-btn {
         @apply bg-red-500 hover:bg-red-700 text-white font-bold ml-3 w-16 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-700
+    }
+    *{
+        @apply transition-colors duration-300
     }
 }

@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
+import { useSelector } from 'react-redux'
 
 const Signup = () => {
 
   const navigate = useNavigate()
+  const {darkMode} = useSelector((state)=> state.darkMode)
 
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
@@ -53,13 +55,14 @@ const Signup = () => {
   
 
   return (
-    <div className="flex justify-center items-center mx-auto px-4 py-8">
-      <div className='w-5/12 p-6 shadow-lg bg-pink-50 rounded-md'>
+    <div className={`${
+      darkMode ? 'dark' : ''} flex justify-center items-center mx-auto px-4 py-8 bg-teal-900 dark:bg-slate-900`}>
+      <div className='w-5/12 p-6 shadow-lg bg-cyan-50 dark:bg-neutral-900 rounded-md'>
       <Toaster position='top-left' reverseOrder='false' ></Toaster>
-      <h2 className="text-3xl font-medium mb-4 text-black text-center">Sign Up</h2>
+      <h2 className="text-3xl font-medium mb-4 text-black dark:text-white text-center">Sign Up</h2>
         <form onSubmit={signUpUser}>
         <div className="mb-4">
-          <label htmlFor="username" className="block text-sm font-medium mb-2">
+          <label htmlFor="username" className="block text-sm font-medium mb-2 dark:text-white">
             Username
           </label>
           <input
@@ -70,7 +73,7 @@ const Signup = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium mb-2">
+          <label htmlFor="email" className="block text-sm font-medium mb-2 dark:text-white">
             Email
           </label>
           <input
@@ -81,7 +84,7 @@ const Signup = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium mb-2">
+          <label htmlFor="password" className="block text-sm font-medium mb-2 dark:text-white">
             Password
           </label>
           <input
@@ -92,7 +95,7 @@ const Signup = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="confirmPassword" className="block text-sm font-medium mb-2">
+          <label htmlFor="confirmPassword" className="block text-sm font-medium mb-2 dark:text-white">
             Confirm Password
           </label>
           <input
@@ -106,7 +109,7 @@ const Signup = () => {
 
         </form>
         <br/>
-        <div className="flex justify-between mt-4">
+        <div className="flex justify-between mt-4 dark:text-white">
               <p>Already have an account?</p>
                <h6><Link to='/login'>Login</Link></h6>
   </div>
