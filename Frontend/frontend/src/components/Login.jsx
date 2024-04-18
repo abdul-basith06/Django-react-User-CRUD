@@ -56,7 +56,7 @@ const Login = () => {
           <input type="text" placeholder='email' name='email'/>
           </div>
         <div className='mb-4'>
-        <input type="text" placeholder='password' name='password'/>
+        <input type="password" placeholder='password' name='password'/>
         </div>
         
         <button className='sbmt'type='submit'>Submit</button>
